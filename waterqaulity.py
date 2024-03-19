@@ -2,8 +2,10 @@ import streamlit as st
 import pickle
 
 def load_model(model_path):
-    with open(model_path, 'rb') as model_file:
-        model = pickle.load(model_file)
+    
+    with gzip.open('random_forest_model.pkl.gz', 'rb') as file:
+        saved_model = pickle.load(file)
+     
     return model
 
 def predict_portability(model, ph,hardness,solids,sulfate,cond,carbon,trihalome):
