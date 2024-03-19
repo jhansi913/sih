@@ -1,11 +1,14 @@
 import streamlit as st
 import pickle
 import gzip
+from joblib import load
 
+# Load the compressed model from file
+saved_model = load('random_forest_model.joblib.')
 def load_model(model_path):
+    model = load('random_forest_model.joblib.gz')
     
-    with gzip.open('random_forest_model1.pkl.gz', 'rb') as file:
-        saved_model = pickle.load(file)
+     
      
     return model
 
@@ -18,7 +21,7 @@ def main():
     st.title("Power Prediction App")
 
     # Load machine learning model
-    model_path = "waterquality_pred.pkl"
+    model_path = "random_forest_model8.joblib.gz"
     model = load_model(model_path)
 
     # User inputs
