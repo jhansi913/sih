@@ -39,7 +39,7 @@ def main():
     # Button to predict power
     if st.button("Predict Power"):
         # Predict power
-        portability = predict_portability(model, ph,hardness,solids,sulfate,cond,carbon,trihalome)
+        portability = predict_portability(model, ph,hardness,solids,sulfate,cond,carbon,turb,trihalome)
         st.success(f"Predicted portability: {portablity}")
 
 if __name__ == "__main__":
