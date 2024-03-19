@@ -3,10 +3,9 @@ import pickle
 import gzip
 from joblib import load
 
-# Load the compressed model from file
-saved_model = load('random_forest_model.joblib.')
+ 
 def load_model(model_path):
-    model = load('random_forest_model.joblib.gz')
+    model = load('random_forest_model8.joblib.gz')
     
      
      
