@@ -4,7 +4,7 @@ import gzip
 
 def load_model(model_path):
     
-    with gzip.open('random_forest_model.pkl.gz', 'rb') as file:
+    with gzip.open('random_forest_model.pkll.gz', 'rb') as file:
         saved_model = pickle.load(file)
      
     return model
