@@ -1,5 +1,6 @@
 import streamlit as st
 import pickle
+import gzip
 
 def load_model(model_path):
     
