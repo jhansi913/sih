@@ -11,8 +11,8 @@ def load_model(model_path):
      
     return model
 
-def predict_portability(model, ph,hardness,solids,sulfate,cond,carbon,trihalome):
-    input_features = [[ph,hardness,solids,sulfate,cond,carbon,trihalome]]
+def predict_portability(model, ph,hardness,solids,sulfate,cond,carbon,turb,trihalome):
+    input_features = [[ph,hardness,solids,sulfate,cond,carbon,turb,trihalome]]
     portabilty = model.predict(input_features)[0]
     return portability
 
@@ -30,6 +30,7 @@ def main():
     sulfate = st.number_input("Enter sulfate:", min_value=0.0, step=0.1)
     cond= st.number_input("Enter conductivity:", min_value=0.0, step=0.1)
     carbon = st.number_input("Enter carbon:", min_value=0.0, step=0.1)
+    turb = st.number_input("Enter turb:", min_value=0.0, step=0.1)
     trihalome = st.number_input("Enter trihalome:", min_value=0.0, step=0.1)
     
     
