@@ -5,7 +5,7 @@ from joblib import load
 
  
 def load_model(model_path):
-    model = load('random_forest_model8.joblib.gz')
+    model = load('random_forest_model88.joblib.gz')
     
      
      
