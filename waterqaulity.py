@@ -13,7 +13,7 @@ def load_model(model_path):
 
 def predict_portability(model, ph,hardness,solids,cholarmine,sulfate,cond,carbon,turb,trihalome):
     input_features = [[ph,hardness,solids,cholarmine,sulfate,cond,carbon,turb,trihalome]]
-    portabilty = model.predict(input_features)[0]
+    portability = model.predict(input_features)[0]
     return portability
 
 def main():
