@@ -41,7 +41,7 @@ def main():
     if st.button("Predict Power"):
         # Predict power
         portability = predict_portability(model, ph,hardness,solids,cholarmine,sulfate,cond,carbon,turb,trihalome)
-        st.success(f"Predicted portability: {portablity}")
+        st.success(f"Predicted portability: {portability}")
 
 if __name__ == "__main__":
     main()
