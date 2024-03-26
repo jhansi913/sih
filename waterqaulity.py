@@ -19,7 +19,7 @@ def main():
  navigation_options = ['Welcome', 'Water_quality', 'Water_depth']
 
     # Create sidebar with navigation options
- page = st.sidebar('Navigation', navigation_options)
+ page = st.sidebar.radio('Navigation', navigation_options)
  
   
  if page=='Welcome':
