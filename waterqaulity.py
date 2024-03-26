@@ -16,8 +16,12 @@ def predict_portability2(model,Latitude,Longitude):
     return portability
 
 def main():
+ navigation_options = ['Welcome', 'Water_quality', 'Water_depth']
+
+    # Create sidebar with navigation options
+ page = st.sidebar.selectbox('Navigation', navigation_options)
  
- page=st.sidebar('Navigation',['Welcome','water quality','water depth'])
+  
  if page=='Welcome':
   st.title("water quality Prediction App")
   st.image("machine.jpg")
