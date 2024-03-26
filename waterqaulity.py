@@ -19,11 +19,11 @@ def main():
  navigation_options = ['Welcome', 'Water_quality', 'Water_depth']
 
     # Create sidebar with navigation options
- page = st.sidebar.selectbox('Navigation', navigation_options)
+ page = st.sidebar('Navigation', navigation_options)
  
   
  if page=='Welcome':
-  st.title("water quality Prediction App")
+  st.title("welcome machine learning world ")
   st.image("machine.jpg")
  elif page=='water_quality':
   ph = st.number_input("Enter ph:", min_value=0.0, step=0.1)
