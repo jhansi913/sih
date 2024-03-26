@@ -26,6 +26,7 @@ def main():
   st.title("welcome machine learning world ")
   st.image("machine.jpg")
  elif page=='water_quality':
+  st.tittle("Water Quality prediction")
   ph = st.number_input("Enter ph:", min_value=0.0, step=0.1)
   hardness = st.number_input("Enter hardness:", min_value=0.0, step=0.1)
   solids = st.number_input("Enter solids:", min_value=0.0, step=0.1)
