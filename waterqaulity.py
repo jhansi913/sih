@@ -44,6 +44,7 @@ def main():
         # Predict power
          
  elif page=='water_depth':
+  st.title("Water Depth prediction")
   
   Latitude = st.number_input("Enter latitude:")
   Longitude= st.number_input("Enter longitude:")
