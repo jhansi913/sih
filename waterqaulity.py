@@ -17,7 +17,7 @@ def predict_portability(model, ph,hardness,solids,cholarmine,sulfate,cond,carbon
     return portability
 
 def main():
-    st.title("Power Prediction App")
+    st.title("water quality Prediction App")
 
     # Load machine learning model
     model_path = "random_forest_model8.joblib.gz"
@@ -38,7 +38,7 @@ def main():
               
 
     # Button to predict power
-    if st.button("Predict Power"):
+    if st.button("predicit"):
         # Predict power
         portability = predict_portability(model, ph,hardness,solids,cholarmine,sulfate,cond,carbon,turb,trihalome)
         st.success(f"Predicted portability: {portability}")
