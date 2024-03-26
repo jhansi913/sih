@@ -19,7 +19,7 @@ def main():
  page=st.sidebar('Navigation',['Welcome','water quality','water depth'])
  if page=='Welcome':
   st.title("water quality Prediction App")
-  st.image("")
+  st.image("machine.jpg")
 elif page=='water_quality':
      
     ph = st.number_input("Enter ph:", min_value=0.0, step=0.1)
