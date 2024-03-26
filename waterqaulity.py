@@ -51,7 +51,7 @@ def main():
   model = load('random_forest_model880.joblib.gz')
   if st.button("predicit"):
    portability = predict_portability2(model,Latitude,Longitude)
-   st.success(f"Predicted portability: {portability}")
+   st.success(f"Predicted Depth: {portability}")
         # Predict power
          
  
