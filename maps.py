@@ -1,4 +1,4 @@
- import streamlit as st
+import streamlit as st
 
 def main():
     st.title("Click on the Map to Get Latitude and Longitude")
