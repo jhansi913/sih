@@ -6,13 +6,14 @@ def main():
     # Display the map
     map_data = st.map()
 
-    # Function to handle map click events
-    def handle_click(event):
-        if event:
-            st.write("Latitude:", event["lat"], "Longitude:", event["lon"])
-
-    # Register the click event handler
-    map_data.on_click(handle_click)
+    # Add a button to capture coordinates
+    if st.button("Get Coordinates"):
+        # Get the current coordinates from the map
+        current_coordinates = map_data._coordinates
+        if current_coordinates:
+            st.write("Latitude:", current_coordinates[0], "Longitude:", current_coordinates[1])
+        else:
+            st.write("Click on the map to get coordinates.")
 
 if __name__ == "__main__":
     main()
