@@ -6,16 +6,35 @@ def main():
     # Display the map
     map_data = st.map()
 
-    # Input fields for latitude and longitude
-    latitude = st.number_input("Latitude", value=0.0)
-    longitude = st.number_input("Longitude", value=0.0)
+    # Define the JavaScript code to capture click events
+    js_code = """
+    <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        const map = document.querySelector(".leaflet-container");
+        map.addEventListener("click", function(event) {
+            const lat = event.latlng.lat;
+            const lon = event.latlng.lng;
+            const data = {lat: lat, lon: lon};
+            const jsonString = JSON.stringify(data);
+            const eventName = "map_click";
+            const eventPayload = {event: eventName, value: jsonString};
+            parent.postMessage(eventPayload, "*");
+        });
+    });
+    </script>
+    """
 
-    # Update latitude and longitude based on map click
-    if st.button("Update Coordinates"):
-        # Simulate updating latitude and longitude based on the map click
-        # For demonstration purposes, we'll just set them to 0.0
-        st.write("Latitude:", latitude)
-        st.write("Longitude:", longitude)
+    # Inject the JavaScript code into the Streamlit app
+    st.components.v1.html(js_code)
+
+    # Listen for messages from the JavaScript code
+    event = st.session_state.get("map_click")
+    if event:
+        data = event.get("value")
+        if data:
+            location = eval(data)  # Convert JSON string to dictionary
+            st.write("Latitude:", location["lat"])
+            st.write("Longitude:", location["lon"])
 
 if __name__ == "__main__":
     main()
