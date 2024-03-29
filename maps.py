@@ -6,16 +6,28 @@ def main():
     # Display the map
     map_data = st.map()
 
-    # Input fields for latitude and longitude
-    latitude = st.number_input("Latitude", value=0.0)
-    longitude = st.number_input("Longitude", value=0.0)
+    # Write the JavaScript function to handle click events
+    js_code = """
+    <script>
+    const map = document.querySelector(".stDeckGlMap div:first-child");
 
-    # Add a button to capture the clicked location
-    if st.button("Capture Click"):
-        # Get the latitude and longitude from the map click (not supported directly in Streamlit)
-        # For demonstration purposes, we'll use the input fields
-        st.write("Latitude:", latitude)
-        st.write("Longitude:", longitude)
+    map.addEventListener("click", function(event) {
+        const lat = event.latlng.lat;
+        const lon = event.latlng.lng;
+        
+        // Send the latitude and longitude to Streamlit
+        const data = {lat: lat, lon: lon};
+        Streamlit.setComponentValue(data);
+    });
+    </script>
+    """
+    st.components.v1.html(js_code)
+
+    # Display the latitude and longitude of the clicked location
+    clicked_location = st.session_state.get("clicked_location")
+    if clicked_location:
+        st.write("Latitude:", clicked_location["lat"])
+        st.write("Longitude:", clicked_location["lon"])
 
 if __name__ == "__main__":
     main()
