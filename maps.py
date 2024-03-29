@@ -1,40 +1,23 @@
 import streamlit as st
+from streamlit_custom_components import st_custom_components
 
 def main():
     st.title("Click on the Map to Get Latitude and Longitude")
 
     # Display the map
-    map_data = st.map()
+    map_data = st_custom_components.declarative_map()
 
-    # Define the JavaScript code to capture click events
-    js_code = """
-    <script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-        const map = document.querySelector(".leaflet-container");
-        map.addEventListener("click", function(event) {
-            const lat = event.latlng.lat;
-            const lon = event.latlng.lng;
-            const data = {lat: lat, lon: lon};
-            const jsonString = JSON.stringify(data);
-            const eventName = "map_click";
-            const eventPayload = {event: eventName, value: jsonString};
-            parent.postMessage(eventPayload, "*");
-        });
-    });
-    </script>
-    """
+    # Listen for messages from the custom component
+    message = st_custom_components.receive_message("map_click")
 
-    # Inject the JavaScript code into the Streamlit app
-    st.components.v1.html(js_code)
-
-    # Listen for messages from the JavaScript code
-    event = st.session_state.get("map_click")
-    if event:
-        data = event.get("value")
-        if data:
-            location = eval(data)  # Convert JSON string to dictionary
-            st.write("Latitude:", location["lat"])
-            st.write("Longitude:", location["lon"])
+    # If a message is received, extract latitude and longitude
+    if message:
+        latitude = message.get("latitude")
+        longitude = message.get("longitude")
+        if latitude is not None and longitude is not None:
+            st.write("Latitude:", latitude)
+            st.write("Longitude:", longitude)
 
 if __name__ == "__main__":
     main()
+
