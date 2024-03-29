@@ -1,4 +1,4 @@
-import streamlit as st
+ import streamlit as st
 
 def main():
     st.title("Click on the Map to Get Latitude and Longitude")
@@ -26,10 +26,11 @@ def main():
     )
 
     # Read the latitude and longitude from the JavaScript event
-    clicked_location = st.components.v1.html("", height=0)
-    if clicked_location:
-        st.write("Latitude:", clicked_location.lat)
-        st.write("Longitude:", clicked_location.lon)
+    clicked_location = st.empty()
+    if st.session_state.get("clicked_location"):
+        st.write("Latitude:", st.session_state.clicked_location["lat"])
+        st.write("Longitude:", st.session_state.clicked_location["lon"])
 
 if __name__ == "__main__":
     main()
+
