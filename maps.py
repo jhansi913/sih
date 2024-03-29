@@ -8,12 +8,13 @@ def main():
 
     # Add a button to capture coordinates
     if st.button("Get Coordinates"):
-        # Get the current coordinates from the map
-        current_coordinates = map_data._coordinates
-        if current_coordinates:
-            st.write("Latitude:", current_coordinates[0], "Longitude:", current_coordinates[1])
+        # Get the current coordinates from the map using locator widget
+        location = st.locator("Click on the map")
+        if location:
+            st.write("Latitude:", location["lat"], "Longitude:", location["lon"])
         else:
-            st.write("Click on the map to get coordinates.")
+            st.write("No coordinates selected.")
 
 if __name__ == "__main__":
     main()
+
