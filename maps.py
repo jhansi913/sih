@@ -1,30 +1,24 @@
 import streamlit as st
 
-# Define JavaScript to handle map clicks
-js_code = """
-<script>
-document.addEventListener("DOMContentLoaded", function(event) {
-    const map = document.querySelector(".stDeckGlMap div:first-child");
+def main():
+    st.title("Click on the Map to Get Latitude and Longitude")
 
-    map.addEventListener("click", function(event) {
-        if (window.Streamlit) {
-            const lat = event.latlng.lat;
-            const lon = event.latlng.lng;
-            
-            // Set session state with latitude and longitude
-            Streamlit.setComponentValue({latitude: lat, longitude: lon});
-        }
-    });
-});
-</script>
-"""
+    # Initialize variables to store latitude and longitude
+    latitude = None
+    longitude = None
 
-# Inject JavaScript into Streamlit app
-st.components.v1.html(js_code)
+    # Display the map
+    map_data = st.map()
 
-# Placeholder to display captured latitude and longitude
-if st.session_state.get("latitude") is not None:
-    st.write("Latitude:", st.session_state.latitude)
-    st.write("Longitude:", st.session_state.longitude)
+    # Add a button to capture click
+    if st.button("Capture Click"):
+        # Set a session state flag to indicate we're capturing the click
+        latitude, longitude = map_data.select_location()
 
+    # Display the captured latitude and longitude
+    if latitude is not None and longitude is not None:
+        st.write("Latitude:", latitude)
+        st.write("Longitude:", longitude)
 
+if __name__ == "__main__":
+    main()
