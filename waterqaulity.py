@@ -27,7 +27,7 @@ def main():
   st.title("welcome machine learning world ")
   st.image("machine.jpg")
  elif page=='water_quality':
-  df = pd.read_csv('water_portability.csv')
+  df = pd.read_csv('water_potability.csv')
   st.dataframe(df.head())
   st.title("Water Quality prediction")
   ph = st.number_input("Enter ph:", min_value=0.0, step=0.1)
