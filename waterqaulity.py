@@ -31,6 +31,10 @@ def main():
   st.title("Water Quality prediction")
   st.subheader("Samples")
   df = pd.read_csv('water_potability.csv')
+  for column in df.columns:
+    if df[column].dtype in [int, float]:  # Only fill numeric columns
+        mean_value = df[column].mean()  # Calculate mean of the column
+        df[column].fillna(mean_value, inplace=True)
   top_3 = df.head(3)
   bottom_3 = df.tail(3)
  
