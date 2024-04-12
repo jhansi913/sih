@@ -57,14 +57,17 @@ def main():
   if st.button("predicit"):
    portability = predict_portability1(model, ph,hardness,solids,cholarmine,sulfate,cond,carbon,turb,trihalome)
    st.success(f"Predicted portability: {portability}")
-   if portability==0:
+  x__test=[[6.79546901,187.7830201,187.7830201,7.486598424,316.9569345,498.665928,19.60042881,55.40111272,5.163088154]]
+  we=grid_rf.predict(x__test)
+  st.success(f"Predicted portability: {we}")
+  
+  if portability==0:
     st.write("Be cautious: The water quality may be compromised. Consuming unsafe water can pose serious health risks.")
-   elif portability==1:
+  elif portability==1:
     st.write("Stay hydrated with confidence: The water quality meets the necessary standards and is safe for consumption.")
     
 
 
-        # Predict power
          
  elif page=='water_depth':
   st.title("Embedding HTML in Streamlit")
