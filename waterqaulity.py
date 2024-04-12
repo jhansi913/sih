@@ -28,6 +28,8 @@ def main():
   st.image("machine.jpg")
   
  elif page=='water_quality':
+  st.title("Water Quality prediction")
+  st.subheader("Samples")
   df = pd.read_csv('water_potability.csv')
   top_3 = df.head(3)
   bottom_3 = df.tail(3)
@@ -37,7 +39,7 @@ def main():
  
   st.dataframe(combined_df)
   
-  st.title("Water Quality prediction")
+   
   ph = st.number_input("Enter ph:", min_value=0.0, step=0.1)
   hardness = st.number_input("Enter hardness:", min_value=0.0, step=0.1)
   solids = st.number_input("Enter solids:", min_value=0.0, step=0.1)
@@ -51,6 +53,12 @@ def main():
   if st.button("predicit"):
    portability = predict_portability1(model, ph,hardness,solids,cholarmine,sulfate,cond,carbon,turb,trihalome)
    st.success(f"Predicted portability: {portability}")
+   if portability==0:
+    st.write("Be cautious: The water quality may be compromised. Consuming unsafe water can pose serious health risks.")
+   elif portability==1:
+    st.write("Stay hydrated with confidence: The water quality meets the necessary standards and is safe for consumption.")
+    
+
 
         # Predict power
          
