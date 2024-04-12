@@ -26,9 +26,17 @@ def main():
  if page=='Welcome':
   st.title("welcome machine learning world ")
   st.image("machine.jpg")
+  
  elif page=='water_quality':
   df = pd.read_csv('water_potability.csv')
-  st.dataframe(df.head())
+  top_3 = df.head(3)
+  bottom_3 = df.tail(3)
+ 
+  combined_df = pd.concat([top_3, bottom_3])
+
+ 
+  st.dataframe(combined_df)
+  
   st.title("Water Quality prediction")
   ph = st.number_input("Enter ph:", min_value=0.0, step=0.1)
   hardness = st.number_input("Enter hardness:", min_value=0.0, step=0.1)
