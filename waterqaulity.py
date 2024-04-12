@@ -44,7 +44,7 @@ def main():
   st.dataframe(combined_df)
   
    
-  ph = st.number_input("Enter ph:", min_value=0.0, step=0.1)
+  ph = st.number_input("Enter ph:", min_value=0.0)
   hardness = st.number_input("Enter hardness:", min_value=0.0, step=0.1)
   solids = st.number_input("Enter solids:", min_value=0.0, step=0.1)
   cholarmine = st.number_input("Enter cholarmine:", min_value=0.0, step=0.1)
