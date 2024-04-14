@@ -25,7 +25,7 @@ def main():
   
  if page=='Welcome':
   st.title("welcome machine learning world ")
-  st.image("machine.jpg")
+  st.image("borewell.webg")
   
  elif page=='water_quality':
   st.title("Water Quality prediction")
