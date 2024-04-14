@@ -68,7 +68,7 @@ def main():
 
          
  elif page=='water_depth':
-  st.write(" WATER DEPTH")
+  st.title(" WATER DEPTH")
   with open("home.html", "r", encoding="utf-8") as file1:
    html_content1 = file1.read()
   st.components.v1.html(html_content1, height=600, scrolling=True)
