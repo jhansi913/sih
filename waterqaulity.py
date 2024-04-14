@@ -29,7 +29,7 @@ def main():
   
  elif page=='water_quality':
   st.title("Water Quality prediction")
-  st.image("water_chemicals.PNG")
+  st.image("water_chemicals.png")
   st.subheader("Samples")
   df = pd.read_csv('water_potability.csv')
   for column in df.columns:
