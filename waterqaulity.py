@@ -56,7 +56,7 @@ def main():
   model = load('random_forest_model881.joblib.gz')
   if st.button("predicit"):
    portability = predict_portability1(model, ph,hardness,solids,cholarmine,sulfate,cond,carbon,turb,trihalome)
-   st.success(f"Predicted portability: {portability}")
+   st.success(f"Predicted portability: {1}")
    if portability==0:
     st.write("Be cautious: The water quality may be compromised. Consuming unsafe water can pose serious health risks.")
    elif portability==1:
