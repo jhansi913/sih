@@ -68,14 +68,14 @@ def main():
 
          
  elif page=='water_depth':
-  st.title(" WATER DEPTH")
+  st.title("Water Depth prediction")
   with open("home.html", "r", encoding="utf-8") as file1:
    html_content1 = file1.read()
   st.components.v1.html(html_content1, height=600, scrolling=True)
     
      
  
-  st.title("Water Depth prediction")
+   
   
   Latitude = st.number_input("Enter latitude:")
   Longitude= st.number_input("Enter longitude:")
