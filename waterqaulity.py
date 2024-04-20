@@ -77,8 +77,8 @@ def main():
  
    
   
-  Latitude = st.number_input("Enter latitude:")
-  Longitude= st.number_input("Enter longitude:")
+  Latitude = st.number_input("Enter latitude:",format="%.5f")
+  Longitude= st.number_input("Enter longitude:",format="%.5f")
   model = load('random_forest_model880.joblib.gz')
   if st.button("predicit"):
    portability = predict_portability2(model,Latitude,Longitude)
