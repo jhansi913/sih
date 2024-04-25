@@ -22,13 +22,13 @@ def main():
     # Create sidebar with navigation options
  page = st.sidebar.radio('Navigation', navigation_options)
  
- portability_list = []
- depth_list = []
+  
  if page=='Welcome':
   st.title("Borewells provide life-sustaining water to millions of people around the world.")
   st.image("borewell.webp")
   
  elif page=='water_quality':
+  portability_list = []
   st.title("Water Quality prediction")
   st.image("water_chemicals.png")
   st.subheader("Samples")
@@ -69,6 +69,8 @@ def main():
 
          
  elif page=='water_depth':
+   
+  depth_list = []
   st.title("Water Depth prediction")
   with open("home.html", "r", encoding="utf-8") as file1:
    html_content1 = file1.read()
