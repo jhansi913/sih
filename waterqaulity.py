@@ -87,7 +87,7 @@ def main():
   portability_list = []
   depth_list = []         
   if len(portability_list) >= 1 and len(depth_list) >= 1:
-   data = pd.DataFrame({'Portability': portability_list[:10], 'Depth': depth_list[:10]}) 
+   data = pd.DataFrame({'Portability': portability_list[:1], 'Depth': depth_list[:1]}) 
    st.write("Stored Data for 10 Records:")
    st.write(data)
 
