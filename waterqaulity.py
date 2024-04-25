@@ -68,7 +68,7 @@ def main():
 
 
          
- elif page=='water_depth':
+ #elif page=='water_depth':
    
   depth_list = []
   st.title("Water Depth prediction")
@@ -87,7 +87,7 @@ def main():
    depth = predict_portability2(model,Latitude,Longitude)
    depth_list.append(depth)
    st.success(f"Predicted Depth: {depth}")
-if len(portability_list) >= 2 and len(depth_list) >= 2:
+  if len(portability_list) >= 2 and len(depth_list) >= 2:
     data = pd.DataFrame({'Portability': portability_list[:2], 'Depth': depth_list[:2]})
     st.write("Stored Data for 10 Records:")
     st.write(data)
