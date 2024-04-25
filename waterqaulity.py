@@ -85,11 +85,10 @@ def main():
    depth = predict_portability2(model,Latitude,Longitude)
    depth_list.append(depth)
    st.success(f"Predicted Depth: {depth}")
- elif page=='final':         
-  if len(portability_list) >= 1 and len(depth_list) >= 1:
-   data = pd.DataFrame({'Portability': portability_list[:1], 'Depth': depth_list[:1]}) 
-   st.write("Stored Data for 10 Records:")
-   st.write(data)
+if len(portability_list) >= 2 and len(depth_list) >= 2:
+    data = pd.DataFrame({'Portability': portability_list[:2], 'Depth': depth_list[:2]})
+    st.write("Stored Data for 10 Records:")
+    st.write(data)
 
 
         # Predict power
