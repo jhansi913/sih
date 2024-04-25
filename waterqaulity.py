@@ -17,7 +17,7 @@ def predict_portability2(model,Latitude,Longitude):
     return portability
 
 def main():
- navigation_options = ['Welcome', 'water_quality', 'water_depth']
+ navigation_options = ['Welcome', 'water_quality', 'water_depth','final']
 
     # Create sidebar with navigation options
  page = st.sidebar.radio('Navigation', navigation_options)
