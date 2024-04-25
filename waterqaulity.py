@@ -83,9 +83,14 @@ def main():
   if st.button("predicit"):
    portability = predict_portability2(model,Latitude,Longitude)
    st.success(f"Predicted Depth: {portability}")
+
         # Predict power
-         
- 
+portability_list = []
+depth_list = []         
+if len(portability_list) >= 10 and len(depth_list) >= 10:
+    data = pd.DataFrame({'Portability': portability_list[:10], 'Depth': depth_list[:10]})
+    st.write("Stored Data for 10 Records:")
+    st.write(data)
 
 if __name__ == "__main__":
     main()
