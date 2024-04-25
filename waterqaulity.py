@@ -68,7 +68,7 @@ def main():
 
 
          
- #elif page=='water_depth':
+ elif page=='water_depth':
    
   depth_list = []
   st.title("Water Depth prediction")
