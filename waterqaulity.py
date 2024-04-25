@@ -22,7 +22,8 @@ def main():
     # Create sidebar with navigation options
  page = st.sidebar.radio('Navigation', navigation_options)
  
-  
+ portability_list = []
+ depth_list = []
  if page=='Welcome':
   st.title("Borewells provide life-sustaining water to millions of people around the world.")
   st.image("borewell.webp")
@@ -57,7 +58,7 @@ def main():
   model = load('random_forest_model881.joblib.gz')
   if st.button("predicit"):
    portability = predict_portability1(model, ph,hardness,solids,cholarmine,sulfate,cond,carbon,turb,trihalome)
-   
+   portability_list.append(portability)
    st.success(f"Predicted portability: {portability}")
    if portability==0:
     st.write("Be cautious: The water quality may be compromised. Consuming unsafe water can pose serious health risks.")
@@ -81,11 +82,10 @@ def main():
   Longitude= st.number_input("Enter longitude:",format="%.5f")
   model = load('random_forest_model880.joblib.gz')
   if st.button("predicit"):
-   portability = predict_portability2(model,Latitude,Longitude)
-   st.success(f"Predicted Depth: {portability}")
- elif page=='final':
-  portability_list = []
-  depth_list = []         
+   depth = predict_portability2(model,Latitude,Longitude)
+   depth_list.append(depth)
+   st.success(f"Predicted Depth: {depth}")
+ elif page=='final':         
   if len(portability_list) >= 1 and len(depth_list) >= 1:
    data = pd.DataFrame({'Portability': portability_list[:1], 'Depth': depth_list[:1]}) 
    st.write("Stored Data for 10 Records:")
