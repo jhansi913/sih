@@ -91,7 +91,7 @@ def main():
     if df[column].dtype in [int, float]:  # Only fill numeric columns
         mean_value = df[column].mean()  # Calculate mean of the column
         df[column].fillna(mean_value, inplace=True)
-  top_3 = df.head(5)
+  top_3 = df.head(6)
    
   
   st.dataframe(top_3)
