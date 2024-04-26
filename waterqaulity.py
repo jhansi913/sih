@@ -84,6 +84,16 @@ def main():
   bottom_3 = df.tail(3)
   combined_df = pd.concat([top_3, bottom_3])
   st.dataframe(combined_df)
+  
+  df = pd.read_csv('Book11.csv')
+  for column in df.columns:
+    if df[column].dtype in [int, float]:  # Only fill numeric columns
+        mean_value = df[column].mean()  # Calculate mean of the column
+        df[column].fillna(mean_value, inplace=True)
+  top_3 = df.head(3)
+  bottom_3 = df.tail(3)
+  combined_df = pd.concat([top_3, bottom_3])
+  st.dataframe(combined_df)
  
   
   
