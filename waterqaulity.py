@@ -77,8 +77,8 @@ def main():
   if st.button("predicit"):
    depth = predict_portability2(model,Latitude,Longitude)  
    prediction_history.append({
-        'Latitude': latitude,
-        'Longitude': longitude,
+        'Latitude': Latitude,
+        'Longitude': Longitude,
         'Predicted Depth': depth
     })  
    st.success(f"Predicted Depth: {depth}")
