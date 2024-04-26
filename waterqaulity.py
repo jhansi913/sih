@@ -18,7 +18,7 @@ def predict_portability2(model,Latitude,Longitude):
     return portability
 
 def main():
- navigation_options = ['Welcome', 'water_quality', 'water_depth','final'] 
+ navigation_options = ['Welcome', 'water_quality', 'water_level','final'] 
  page = st.sidebar.radio('Navigation', navigation_options)
  if page=='Welcome':
   st.title("Borewells provide life-sustaining water to millions of people around the world.")
@@ -47,11 +47,11 @@ def main():
    elif portability==1:
     st.write("Stay hydrated with confidence: The water quality meets the necessary standards and is safe for consumption.")
          
- elif page=='water_depth':
+ elif page=='water_level':
   inputs = []
   predictions = []  
   depth_list = []
-  st.title("Water Depth prediction")
+  st.title("Water level prediction")
   with open("home.html", "r", encoding="utf-8") as file1:
    html_content1 = file1.read()
   st.components.v1.html(html_content1, height=600, scrolling=True)
@@ -61,13 +61,13 @@ def main():
   model = load('random_forest_model880.joblib.gz')
   prediction_history = deque(maxlen=5)
   if st.button("predicit"):
-   depth = predict_portability2(model,Latitude,Longitude)  
+   water_level = predict_portability2(model,Latitude,Longitude)  
    prediction_history.append({
         'Latitude': Latitude,
         'Longitude': Longitude,
-        'Predicted Depth': depth
+        'Predicted Depth': water_level
     })  
-   st.success(f"Predicted Depth: {depth}")
+   st.success(f"Predicted level: {depth}")
   if prediction_history:
    st.write("Recent Predictions:")
    history_df = pd.DataFrame(prediction_history)
@@ -85,7 +85,7 @@ def main():
   bottom_3 = df.tail(3)
   combined_df = pd.concat([top_3, bottom_3])
   st.dataframe(combined_df)
-  st.subheader("Samples of water depth")
+  st.subheader("Samples of underground waterlevel")
   df = pd.read_csv('Book11 .csv')
   for column in df.columns:
     if df[column].dtype in [int, float]:  # Only fill numeric columns
