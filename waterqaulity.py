@@ -74,8 +74,8 @@ def main():
    st.write(history_df)
   else:
    st.write("No predictions made yet.")
-elif page=='final':
- df = pd.read_csv('water_potability.csv')
+ elif page=='final':
+  df = pd.read_csv('water_potability.csv')
   for column in df.columns:
     if df[column].dtype in [int, float]:  # Only fill numeric columns
         mean_value = df[column].mean()  # Calculate mean of the column
@@ -85,6 +85,7 @@ elif page=='final':
   combined_df = pd.concat([top_3, bottom_3])
   st.dataframe(combined_df)
  
+  
   
   
        
