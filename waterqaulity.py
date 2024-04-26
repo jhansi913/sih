@@ -17,16 +17,11 @@ def predict_portability2(model,Latitude,Longitude):
     return portability
 
 def main():
- navigation_options = ['Welcome', 'water_quality', 'water_depth','final']
-
-    # Create sidebar with navigation options
+ navigation_options = ['Welcome', 'water_quality', 'water_depth','final'] 
  page = st.sidebar.radio('Navigation', navigation_options)
- 
-  
  if page=='Welcome':
   st.title("Borewells provide life-sustaining water to millions of people around the world.")
   st.image("borewell.webp")
-  
  elif page=='water_quality':
   portability_list = []
   st.title("Water Quality prediction")
@@ -64,33 +59,32 @@ def main():
     st.write("Be cautious: The water quality may be compromised. Consuming unsafe water can pose serious health risks.")
    elif portability==1:
     st.write("Stay hydrated with confidence: The water quality meets the necessary standards and is safe for consumption.")
-    
-
-
          
  elif page=='water_depth':
-   
+  inputs = []
+  predictions = []  
   depth_list = []
   st.title("Water Depth prediction")
   with open("home.html", "r", encoding="utf-8") as file1:
    html_content1 = file1.read()
   st.components.v1.html(html_content1, height=600, scrolling=True)
     
-     
- 
-   
-  
   Latitude = st.number_input("Enter latitude:",format="%.5f")
   Longitude= st.number_input("Enter longitude:",format="%.5f")
   model = load('random_forest_model880.joblib.gz')
   if st.button("predicit"):
-   depth = predict_portability2(model,Latitude,Longitude)
-    
+   depth = predict_portability2(model,Latitude,Longitude) 
+   inputs.append((latitude, longitude))
+   predictions.append(depth[0])
    st.success(f"Predicted Depth: {depth}")
+  
+  data = {'Latitude': [inp[0] for inp in inputs],
+        'Longitude': [inp[1] for inp in inputs],
+        'Predicted Depth': predictions}
+
+# Display the data as a table
+ st.write(pd.DataFrame(data))
    
-
-
-        # Predict power
  
 
 if __name__ == "__main__":
