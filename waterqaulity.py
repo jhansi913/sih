@@ -85,12 +85,15 @@ def main():
      
    st.success(f"Predicted Depth: {depth}")
  if prediction_history:
-    st.write("Recent Predictions:")
-    # Convert the prediction history deque to a DataFrame
-    history_df = pd.DataFrame(prediction_history)
-    st.write(history_df)  # Display the prediction history table
-else:
-    st.write("No predictions made yet.")  
+  st.write("Recent Predictions:")
+  history_df = pd.DataFrame(prediction_history)
+  st.write(history_df)
+ else:
+  st.write("No predictions made yet.")
+ 
+  
+  
+       
   
    
 
