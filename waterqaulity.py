@@ -27,21 +27,7 @@ def main():
   portability_list = []
   st.title("Water Quality prediction")
   st.image("water_chemicals.png")
-  st.subheader("Samples")
-  df = pd.read_csv('water_potability.csv')
-  for column in df.columns:
-    if df[column].dtype in [int, float]:  # Only fill numeric columns
-        mean_value = df[column].mean()  # Calculate mean of the column
-        df[column].fillna(mean_value, inplace=True)
-  top_3 = df.head(3)
-  bottom_3 = df.tail(3)
- 
-  combined_df = pd.concat([top_3, bottom_3])
-
- 
-  st.dataframe(combined_df)
-  
-   
+  st.subheader("Samples") 
   ph = st.number_input("Enter ph:")
   hardness = st.number_input("Enter hardness:", min_value=0.0, step=0.1)
   solids = st.number_input("Enter solids:", min_value=0.0, step=0.1)
@@ -88,6 +74,16 @@ def main():
    st.write(history_df)
   else:
    st.write("No predictions made yet.")
+elif page=='final':
+ df = pd.read_csv('water_potability.csv')
+  for column in df.columns:
+    if df[column].dtype in [int, float]:  # Only fill numeric columns
+        mean_value = df[column].mean()  # Calculate mean of the column
+        df[column].fillna(mean_value, inplace=True)
+  top_3 = df.head(3)
+  bottom_3 = df.tail(3)
+  combined_df = pd.concat([top_3, bottom_3])
+  st.dataframe(combined_df)
  
   
   
