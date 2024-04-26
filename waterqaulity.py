@@ -74,7 +74,7 @@ def main():
   model = load('random_forest_model880.joblib.gz')
   if st.button("predicit"):
    depth = predict_portability2(model,Latitude,Longitude) 
-   inputs.append((latitude, longitude))
+   inputs.append((Latitude, Longitude))
    predictions.append(depth[0])
    st.success(f"Predicted Depth: {depth}")
   
