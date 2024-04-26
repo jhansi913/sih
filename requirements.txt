@@ -4,4 +4,4 @@ streamlit
 scikit-learn==1.2.2
 pandas
 folium
-report_thread
+
