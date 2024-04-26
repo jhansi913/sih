@@ -81,9 +81,10 @@ def main():
   data = {'Latitude': [inp[0] for inp in inputs],
         'Longitude': [inp[1] for inp in inputs],
         'Predicted Depth': predictions}
+  st.write(pd.DataFrame(data))
 
-# Display the data as a table
- st.write(pd.DataFrame(data))
+ 
+  
    
  
 
