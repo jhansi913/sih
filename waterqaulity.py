@@ -75,7 +75,7 @@ def main():
   if st.button("predicit"):
    depth = predict_portability2(model,Latitude,Longitude) 
    inputs.append((Latitude, Longitude))
-   predictions.append(depth[0])
+   predictions.append(depth)
    st.success(f"Predicted Depth: {depth}")
   
   data = {'Latitude': [inp[0] for inp in inputs],
