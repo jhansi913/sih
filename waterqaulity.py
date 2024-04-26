@@ -68,7 +68,7 @@ def main():
         'Predicted Depth': depth
     })  
    st.success(f"Predicted Depth: {depth}")
-  if prediction_history.length()==5:
+  if prediction_history:
    st.write("Recent Predictions:")
    history_df = pd.DataFrame(prediction_history)
    st.write(history_df)
