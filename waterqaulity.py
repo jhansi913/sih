@@ -74,22 +74,19 @@ def main():
   model = load('random_forest_model880.joblib.gz')
   prediction_history = deque(maxlen=5)
   if st.button("predicit"):
-   depth = predict_portability2(model,Latitude,Longitude) 
-    
+   depth = predict_portability2(model,Latitude,Longitude)  
    prediction_history.append({
         'Latitude': latitude,
         'Longitude': longitude,
         'Predicted Depth': depth
-    })
-
-     
+    })  
    st.success(f"Predicted Depth: {depth}")
- if prediction_history:
-  st.write("Recent Predictions:")
-  history_df = pd.DataFrame(prediction_history)
-  st.write(history_df)
- else:
-  st.write("No predictions made yet.")
+  if prediction_history:
+   st.write("Recent Predictions:")
+   history_df = pd.DataFrame(prediction_history)
+   st.write(history_df)
+  else:
+   st.write("No predictions made yet.")
  
   
   
