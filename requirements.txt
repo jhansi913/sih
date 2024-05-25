@@ -1,6 +1,6 @@
 numpy
 joblib
-streamlit
+streamlit==0.82.0
 scikit-learn==1.2.2
 pandas
 folium
