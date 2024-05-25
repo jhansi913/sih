@@ -55,7 +55,7 @@ def main():
   st.title("Water level prediction")
   with open("home.html", "r", encoding="utf-8") as file1:
    html_content1 = file1.read()
-  components.html(html_content1, height=600, scrolling=True)
+   components.html(html_content1, height=600, scrolling=True)
     
   Latitude = st.number_input("Enter latitude:",format="%.5f")
   Longitude= st.number_input("Enter longitude:",format="%.5f")
