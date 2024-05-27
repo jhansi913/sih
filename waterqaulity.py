@@ -59,7 +59,7 @@ def main():
     
   Latitude = st.number_input("Enter latitude:",format="%.5f")
   Longitude= st.number_input("Enter longitude:",format="%.5f")
-  model = load('random_forest_model880.joblib.gz')
+  model = load('knn_regressor.joblib.gz')
   prediction_history = deque(maxlen=5)
   if st.button("predicit"):
    water_level = predict_portability2(model,Latitude,Longitude)  
