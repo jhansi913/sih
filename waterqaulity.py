@@ -68,7 +68,7 @@ def main():
         'Longitude': Longitude,
         'Predicted Depth': water_level
     })  
-   st.success(f"Predicted level: {depth}")
+   st.success(f"Predicted level: {water_level}")
   if prediction_history:
    st.write("Recent Predictions:")
    history_df = pd.DataFrame(prediction_history)
